@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+    color: red;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+a{
+    color :red;
+    transition: 0.3s;
+    
+}
+a:hover{
+    color: blue;
+    transition: 0.3s;
+}
+
+/* Style du corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+/* Style de l'en-tête */
+header {
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+}
+
+button{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#account li{
+    display: flex;
+align-items: end;} 
+
+#navbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+#navbar a {
+    color: #e50914;
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#navbar a:hover {
+    color: #fff;
+}
+
+a input[type=text] {
+    width: 200%;
+    -webkit-transition: width 0.15s ease-in-out;
+    transition: width 0.15s ease-in-out;
+}
+input[type=text] {
+    width: 25%;
+    -webkit-transition: width 0.15s ease-in-out;
+    transition: width 0.15s ease-in-out;
+}
+
+#list{
+font-size:  1.5em;
+margin-left: 90px;
+}
+
+.films{
+    display: list-item;  
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+} 
+
+.myImage {
+    width: 200px;  
+    height: auto; 
+    margin: 30px;
+}
+#movies{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;  
+}
+#movies::-webkit-scrollbar {
+    display: none;  
+}
+
+

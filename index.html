@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Netfloux</title>
+    <script src="script.js"></script>
+
+</head>
+<body>
+    <div id="top">
+        <h1>Netfloux</h1>
+        <nav id="navbar">
+            <a href="search.html"><input id="searchbar" onkeyup="search()" type="text"
+        name="search" placeholder="Rechercher..."></a>
+        <ol>
+            <li class="films">?</li>
+        </ol>
+        </nav>
+        <nav id="account">
+            <ul>
+            <li id="accountpage"><a href="account.html">Mon compte</a></li>
+            <li><button id="redirectssobutton" onclick="redirectUserToSSO()">S'identifier</button></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div class="films_recents">
+        <h3>Films récents</h3>
+        <ul id="movies"><script src="script_index.js"></script></ul>
+        <ul class="films">
+            <button id="loadMoreButton">Charger plus</button>
+            <li id="link_movies"><a href="movie.html">En savoir plus</a></li>
+        </ul>
+    </div>
+
+
+</body>
+</html>
