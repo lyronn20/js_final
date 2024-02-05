@@ -26,3 +26,21 @@ function searchMovies() {
         }
     });
 }
+
+/*function search() {
+    let input = document.getElementById('navbar').value
+    input = input.toLowerCase();
+    let x = document.getElementsByClassName('films');
+
+    for (i = 0; i < x.length; i++) { 
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.opacity = "0";
+            setTimeout(() => { x[i].style.display = "none"; }, 500);
+        }
+        else {
+            x[i].style.display = "block";
+            setTimeout(() => { x[i].style.opacity = "1"; }, 0);                
+        }
+    }
+}
+search();*/

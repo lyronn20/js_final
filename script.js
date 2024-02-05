@@ -1,39 +1,5 @@
 const cleApi = "498abcf5627f7da0c4e107319077ec46"
-const cleTokenAcces = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0OThhYmNmNTYyN2Y3ZGEwYzRlMTA3MzE5MDc3ZWM0NiIsInN1YiI6IjY1YWZiYmE5YWFkOWMyMDBlYTkyMmY4YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HzhbI1yd9zU7kFSVdQqBRGd4EGyeTeF5bo7MatnSRv4"
-
-async function getNewTMDBToken(){
-    const options = {
-        method: 'GET',
-        headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0OThhYmNmNTYyN2Y3ZGEwYzRlMTA3MzE5MDc3ZWM0NiIsInN1YiI6IjY1YWZiYmE5YWFkOWMyMDBlYTkyMmY4YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HzhbI1yd9zU7kFSVdQqBRGd4EGyeTeF5bo7MatnSRv4'
-        }
-    };
-
-    const response = await fetch('https://api.themoviedb.org/3/authentication/token/new', options ).catch(err => console.error(err))
-    let newResponse = await response.json()
-    return newResponse;
-
-        
-
-}
-async function redirectUserToSSO(){
-    const response = await getNewTMDBToken();
-    console.log(response)
-    location.href = `https://www.themoviedb.org/authenticate/${response.request_token}?redirect_to=http://127.0.0.1:5500`
-    
-}
-
-window.onload = () => {
-    console.log(location.search)
-    if(location.search.includes('request_token')){
-        console.log(location.search.split('request_token'))
-    }
-}
-
-
-/*const cleApi = "498abcf5627f7da0c4e107319077ec46"
-const ssoTmdbReadApiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZTlkNjk0NzFlMTBhYTU3NDY0N2ZkYzE4Yjg5NGVkZSIsInN1YiI6IjY1YWZiYzIzNjdiNjEzMDBlYjUzNjY3OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ajlOwMY9nYr33KukjUdZci-MCjCJ7wEBwRtYr0Fbr9Q'
+const ssoTmdbReadApiKey = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0OThhYmNmNTYyN2Y3ZGEwYzRlMTA3MzE5MDc3ZWM0NiIsInN1YiI6IjY1YWZiYmE5YWFkOWMyMDBlYTkyMmY4YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HzhbI1yd9zU7kFSVdQqBRGd4EGyeTeF5bo7MatnSRv4"
 
 // verifie si un token est dans le lien d'accès, stocke le token et reload la page 
 window.onload = async () => {
@@ -108,7 +74,7 @@ async function getNewSession(token) {
     let sessionData = await sessionRequest.json()
     console.log(sessionData)
     return sessionData
-}*/
+}
 
 //ssoTmdbReadApiKey: C'est une clé d'API utilisée pour authentifier les requêtes à l'API TMDB.
 //Fonctions:

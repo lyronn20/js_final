@@ -53,6 +53,8 @@ button{
 align-items: end;} 
 
 #navbar {
+    background-color: #000;
+    color: #fff;
     height: 60px;
     display: flex;
     align-items: center;
@@ -64,7 +66,8 @@ align-items: end;}
 }
 
 #navbar a {
-    color: #e50914;
+    background-color: #000;
+    color: #fff;
     text-decoration: none;
     margin-right: 10px;
     font-size: 16px;
@@ -90,26 +93,9 @@ font-size:  1.5em;
 margin-left: 90px;
 }
 
-.films{
-    display: list-item;  
+.films{  
     display: none;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 
 } 
-
-.myImage {
-    width: 200px;  
-    height: auto; 
-    margin: 30px;
-}
-#movies{
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;  
-}
-#movies::-webkit-scrollbar {
-    display: none;  
-}
-
-
