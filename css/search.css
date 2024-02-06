@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    
+}
+h1{
+    color: red;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+h1 a {
+    color: red;
+    text-decoration: none;
+}
+#search {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+button {
+    border: none;
+    outline: none;
+    background-color: rgba(255, 0, 0, 0.567);
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 5px;
+    transition: all ease 0.1s;
+    box-shadow: 0px 5px 0px 0px rgb(255, 0, 0);
+}
+
+button:active {
+    transform: translateY(5px);
+    box-shadow: 0px 0px 0px 0px rgba(255, 0, 0, 0.567);;
+}
+#results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.movie {
+    flex-basis: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.movie img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.movie h3 {
+    padding: 10px;
+    font-size: 18px;
+}
+
+
+#navbar {
+    --width-of-input: 98%;
+    --border-height: 1px;
+    --border-before-color: rgba(221, 221, 221, 0.39);
+    --border-after-color:red;
+    --input-hovered-color: #4985e01f;
+    position: relative;
+    width: var(--width-of-input);
+}
+
+
+
+/* Pour les tablettes */
+@media (max-width: 768px) {
+    .movie {
+        flex-basis: calc(50% - 20px); /* 2 films par ligne */
+    }
+}
+
+/* Pour les téléphones mobiles */
+@media (max-width: 480px) {
+    .movie {
+        flex-basis: 100%; /* 1 film par ligne */
+    }
+}

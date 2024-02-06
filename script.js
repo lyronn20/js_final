@@ -3,23 +3,29 @@ const ssoTmdbReadApiKey = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0OThhYmNmNTYyN2Y3ZGEw
 
 // verifie si un token est dans le lien d'accès, stocke le token et reload la page 
 window.onload = async () => {
+    if (localStorage.length < 2 || localStorage.getItem('tmdbSessionId') == 'undefined') {
+        hideloginbutton();
+    }
+    else{
+        hidedecobutton();
+    }
     if (!location.search.includes('request_token=')) {
         return
     }
 
-    let token = location.search.split('request_token=')[1]?.split('&')?.[0]
+    let token = location.search.split('request_token=')[1]?.split('&')?.[0];
 
     if(token) {
         getNewSession(token)
         .then(sessionData => {
-            sessionStorage.setItem('tmdbSessionId', sessionData.session_id)
-            sessionStorage.setItem('tmdbSessionToken', token)
-            location.href = 'http://127.0.0.1:5500' //reload dans la barre de navigation
+            localStorage.setItem('tmdbSessionId', sessionData.session_id);
+            localStorage.setItem('tmdbSessionToken', token);
+            location.href = 'http://127.0.0.1:5500'; //reload dans la barre de navigation/ Cacher le bouton si l'utilisateur est connecté
         })
         .catch(err => {
             console.error(err);
-            location.href = 'http://127.0.0.1:5500'
-        })
+            location.href = 'http://127.0.0.1:5500';
+        });
     }
 }
 
@@ -76,50 +82,35 @@ async function getNewSession(token) {
     return sessionData
 
 }
-document.getElementById('loginButton').addEventListener('click', redirectUserToSSO);
 
-function updateUIBasedOnSession() {
-    if (sessionStorage.getItem('tmdbSessionId')) {
-        // Utilisateur connecté
-        document.getElementById('logoutbutton').style.display = 'block';
-        document.getElementById('monCompteText').style.display = 'inline';
-        document.getElementById('redirectssobutton').style.display = 'none';
-    } else {
-        // Utilisateur non connecté
-        document.getElementById('logoutbutton').style.display = 'none';
-        document.getElementById('monCompteText').style.display = 'none';
-        document.getElementById('redirectssobutton').style.display = 'block';
-    }
+function deletSession() {
+    localStorage.removeItem('tmdbSessionId');
+    localStorage.removeItem('tmdbSessionToken');
 }
 
-function logoutUser() {
-    sessionStorage.removeItem('tmdbSessionId');
-    sessionStorage.removeItem('tmdbSessionToken');
-    updateUIBasedOnSession();
+
+function hideloginbutton() {
+    document.getElementById('logoutbutton').style.display = 'none';
+    document.getElementById('redirectssobutton').style.display = 'block';
+
+}
+function hidedecobutton() {
+    document.getElementById('logoutbutton').style.display = 'block';
+    document.getElementById('redirectssobutton').style.display = 'none';
 }
 
-//ssoTmdbReadApiKey: C'est une clé d'API utilisée pour authentifier les requêtes à l'API TMDB.
-//Fonctions:
-//1. redirectUserToSSO:
-//Cette fonction est appelée pour rediriger l'utilisateur vers la page d'authentification de TMDB.
-//Elle appelle la fonction getNewTMDBToken pour obtenir un nouveau jeton d'authentification TMDB.
-//Si la requête réussit, l'utilisateur est redirigé vers une URL de TMDB avec le nouveau jeton d'authentification.
-//2. getNewTMDBToken:
-//:Cette fonction effectue une requête à l'API TMDB pour obtenir un nouveau jeton d'authentification.
-//Elle utilise la clé d'API (ssoTmdbReadApiKey) dans les en-têtes pour authentifier la requête.
-//La fonction renvoie les données du jeton obtenues en réponse à la requête.
-//3. getNewSession(token):
-//Cette fonction prend un jeton en paramètre et effectue une requête à l'API TMDB pour créer une nouvelle session d'authentification.
-//Elle utilise le jeton passé en paramètre dans le corps de la requête et la clé d'API dans les en-têtes pour authentifier la requête.
-//La fonction renvoie les données de session obtenues en réponse à la requête.
-//4. window.onload:
-//Cette partie du code est exécutée lorsque la fenêtre est complètement chargée.
-//Elle vérifie si le paramètre de recherche de l'URL contient la chaîne 'request_token='.
-//Si c'est le cas, elle extrait le jeton de la chaîne de recherche, appelle getNewSession pour créer une nouvelle session, stocke certaines informations dans la session du navigateur et recharge la page.
-//Comment cela fonctionne:
-//Lorsque la page est chargée, le code vérifie si un jeton est présent dans l'URL.
-//:Si un jeton est trouvé, il est utilisé pour créer une nouvelle session en appelant l'API TMDB.
-//Les données de session sont stockées dans la session du navigateur, et la page est rechargée.
-//Si aucun jeton n'est trouvé dans l'URL, la page reste inchangée.
-//Il y a également une fonction (redirectUserToSSO) qui peut être appelée pour rediriger l'utilisateur vers la page d'authentification de TMDB.
-//Ce code semble être une implémentation de l'authentification à l'aide de tokens avec l'API TMDB dans le contexte d'une application web. 
+
+function buttonDelete() {
+    let delSession = document.getElementById('logoutbutton');
+    delSession.addEventListener('click', () => {
+        deletSession()
+        hideloginbutton()
+    });
+}
+buttonDelete()
+
+function buttonSignSession() {
+    let redirButton = document.getElementById('redirectssobutton');
+    redirButton.addEventListener('click', () => redirectUserToSSO());
+}
+buttonSignSession()

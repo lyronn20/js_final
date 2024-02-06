@@ -1,0 +1,131 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 10px;
+    -webkit-font-smoothing: antialiased;
+}
+
+#top {
+    background-color: #000;
+    height: 60px;
+    padding: 10px 20px;
+    width: 97%;
+    z-index: 1;
+}
+
+#top h1 {
+    color: #e50914;
+    float: left;
+    font-size: 3em;
+    line-height: 40px;
+    margin-bottom: 20px; 
+}
+
+#navbar, #myAccount, #account {
+    float: right;
+    padding: auto;
+}
+
+#navbar li, #myAccount, #account li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#navbar li a, #myAccount a, #account li button {
+    color: #fff;
+    text-decoration: none;
+}
+
+.films_recents {
+    margin-top: 80px;
+}
+
+.films_recents h3 {
+    color: #e50914;
+    font-size: 1em;
+    margin-left: 20px;
+}
+
+#movies{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+
+#movies li {
+    margin: 10px;
+    width: 200px;
+}
+
+.movie-title {
+    font-family: 'Arial', sans-serif;
+    font-variant: small-caps;
+    color: red;
+}
+
+.movie-date {
+    font-family: 'Times New Roman', serif; 
+    font-variant: small-caps;
+    color: whitesmoke;
+    
+}
+
+#movies li img {
+    width: 100%;
+}
+button {
+    border: none;
+    outline: none;
+    background-color: rgba(255, 0, 0, 0.567);
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 5px;
+    transition: all ease 0.1s;
+    box-shadow: 0px 5px 0px 0px rgb(255, 0, 0);
+}
+
+button:active {
+    transform: translateY(5px);
+    box-shadow: 0px 0px 0px 0px rgba(255, 0, 0, 0.567);;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Styles pour les tablettes */
+@media (max-width: 768px) {
+    #movies {
+        flex-direction: column;
+    }
+
+    #movies li {
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+
+/* Styles pour les téléphones mobiles */
+@media (max-width: 480px) {
+    #movies {
+        flex-direction: column;
+    }
+
+    #movies li {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    #top h1 {
+        font-size: 20px;
+    }
+
+    .films_recents h3 {
+        font-size: 1.5em;
+    }
+}
