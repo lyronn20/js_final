@@ -11,12 +11,12 @@ h1{
     text-align: center;
 }
 a{
-    color :red;
+    color : white;
     transition: 0.3s;
     
 }
 a:hover{
-    color: blue;
+    color: #000;
     transition: 0.3s;
 }
 
@@ -98,4 +98,10 @@ margin-left: 90px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 
+li img{
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: auto;
+    justify-content: space-evenly
 } 
