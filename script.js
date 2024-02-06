@@ -74,6 +74,28 @@ async function getNewSession(token) {
     let sessionData = await sessionRequest.json()
     console.log(sessionData)
     return sessionData
+
+}
+document.getElementById('loginButton').addEventListener('click', redirectUserToSSO);
+
+function updateUIBasedOnSession() {
+    if (sessionStorage.getItem('tmdbSessionId')) {
+        // Utilisateur connecté
+        document.getElementById('logoutbutton').style.display = 'block';
+        document.getElementById('monCompteText').style.display = 'inline';
+        document.getElementById('redirectssobutton').style.display = 'none';
+    } else {
+        // Utilisateur non connecté
+        document.getElementById('logoutbutton').style.display = 'none';
+        document.getElementById('monCompteText').style.display = 'none';
+        document.getElementById('redirectssobutton').style.display = 'block';
+    }
+}
+
+function logoutUser() {
+    sessionStorage.removeItem('tmdbSessionId');
+    sessionStorage.removeItem('tmdbSessionToken');
+    updateUIBasedOnSession();
 }
 
 //ssoTmdbReadApiKey: C'est une clé d'API utilisée pour authentifier les requêtes à l'API TMDB.
