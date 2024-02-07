@@ -37,7 +37,7 @@ function getRecommendations(movie_id) {
                 .then(response => response.json())
                 .then(data => {
                         const recommendationsDiv = document.getElementById('recommendations');
-                        recommendationsDiv.innerHTML = ""; // Clear previous recommendations
+                        recommendationsDiv.innerHTML = ""; 
                         data.results.forEach(movie => {
                                 const title = movie.title;
                                 const movieId = movie.id;

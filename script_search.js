@@ -8,7 +8,7 @@ function searchMovie(page) {
         .then(data => {
             const resultsDiv = document.getElementById('results');
             if (page === 1) {
-                resultsDiv.innerHTML = ""; // Clear previous results only on the first page
+                resultsDiv.innerHTML = ""; 
             }
             data.results.forEach(movie => {
                 const title = movie.title;
@@ -33,13 +33,12 @@ function searchMovie(page) {
 
 window.onscroll = function() {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        // User has scrolled to the bottom of the page, load the next page of results
         searchMovie(currentPage);
     }
 };
 
 document.getElementById('search').addEventListener('input', function(e) {
     query = e.target.value;
-    currentPage = 1; // Reset to the first page for a new search
+    currentPage = 1; 
     searchMovie(currentPage);
 });
