@@ -5,16 +5,17 @@ body {
     
 }
 h1{
-    color: red;
+    color: #f9a602;
     font-size: 40px;
     font-weight: bold;
     margin-bottom: 40px;
     text-align: center;
 }
 h1 a {
-    color: red;
+    color: #f9a602;
     text-decoration: none;
 }
+
 #search {
     display: block;
     width: 100%;
@@ -25,19 +26,19 @@ h1 a {
 button {
     border: none;
     outline: none;
-    background-color: rgba(255, 0, 0, 0.567);
+    background-color: #f9a602;
     padding: 10px 20px;
     font-size: 12px;
     font-weight: 700;
     color: #fff;
     border-radius: 5px;
     transition: all ease 0.1s;
-    box-shadow: 0px 5px 0px 0px rgb(255, 0, 0);
+    box-shadow: 0px 5px 0px 0px #f9a602;
 }
 
 button:active {
     transform: translateY(5px);
-    box-shadow: 0px 0px 0px 0px rgba(255, 0, 0, 0.567);;
+    box-shadow: 0px 0px 0px 0px #f9a602;;
 }
 #results {
     display: flex;
@@ -49,17 +50,29 @@ button:active {
     flex-basis: calc(33.33% - 20px);
     margin-bottom: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 
-.movie img {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
+.movie:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
 
 .movie h3 {
     padding: 10px;
     font-size: 18px;
+    color: #f9a602;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.movie:hover h3 {
+    transform: scale(1.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.movie a {
+    color: f9a602;
+    text-decoration: none;
 }
 
 
@@ -67,13 +80,17 @@ button:active {
     --width-of-input: 98%;
     --border-height: 1px;
     --border-before-color: rgba(221, 221, 221, 0.39);
-    --border-after-color:red;
+    --border-after-color: #f9a602;
     --input-hovered-color: #4985e01f;
     position: relative;
     width: var(--width-of-input);
 }
 
-
+img {
+    max-width: 95%;
+    height: auto;
+    border-radius: 10px;
+}
 
 /* Pour les tablettes */
 @media (max-width: 768px) {

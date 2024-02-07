@@ -1,3 +1,4 @@
+
 let currentPage = 1;
 let isLoading = false;
 
@@ -5,6 +6,7 @@ function displayMoviesWithImages() {
     if (isLoading) return; // Si isLoading est vrai, arrêtez la fonction
 
     isLoading = true; // Définir isLoading à vrai avant de commencer à charger les films
+
 
     const ulElement = document.querySelector("#movies");
 
@@ -20,6 +22,8 @@ function displayMoviesWithImages() {
         .then(response => response.json())
         .then(data => {
         data.results.forEach(element => {
+
+
             let liElement = document.createElement("li");
 
             let linkElement = document.createElement("a");
@@ -54,6 +58,8 @@ function displayMoviesWithImages() {
             console.error(err);
             isLoading = false; 
         });
+
+        
 }
 
 window.addEventListener('scroll', () => {
